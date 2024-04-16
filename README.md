@@ -6,9 +6,11 @@ Este projeto consiste em uma API para um sistema de hotéis desenvolvido em C# c
 
 O sistema de hotéis permite que usuários realizem reservas em quartos de hotéis, consultem informações sobre hotéis, quartos e cidades, além de realizar autenticação para acessar funcionalidades específicas. Os administradores têm acesso a funcionalidades adicionais, como a adição e remoção de quartos, hotéis e cidades.
 
+Além disso, a API está integrada a um serviço externo de geolocalização. Isso permite que os usuários encontrem hotéis próximos com base no endereço fornecido. Ao enviar uma solicitação para a rota `/geo/address`, você pode obter uma lista de hotéis ordenados por proximidade.
+
 ## Teste Agora!
 
-Você pode testar o sistema de hotéis acessando o [deploy](https://hrs.up.railway.app/) deste projeto. Experimente agora mesmo!
+Você pode testar o sistema de hotéis acessando o [deploy](https://hrs.up.railway.app/) deste projeto. Experimente!
 
 ## Rotas e Funcionalidades
 
@@ -16,21 +18,22 @@ A tabela a seguir detalha as rotas disponíveis na API, juntamente com suas func
 
 | Rota          | Método | Funcionalidade para Usuários | Funcionalidade para Administradores |
 |---------------|--------|-------------------------------|-------------------------------------|
-| `/user`       | GET    | Retorna todos os usuários.    | Retorna todos os usuários.         |
-| `/room`       | POST   | Cria um novo quarto.         | Cria um novo quarto.               |
-| `/room/{id}`  | DELETE | -                             | Deleta um quarto pelo ID.          |
-| `/hotel`      | POST   | Cria um novo hotel.          | Cria um novo hotel.                |
-| `/city`       | POST   | Cria uma nova cidade.        | Cria uma nova cidade.              |
-| `/city/{id}`  | PUT    | -                             | Edita uma cidade existente.        |
+| `/`           | GET    | Retorna uma mensagem de status "Online" da API. | Retorna uma mensagem de status "Online" da API. |
 | `/login`      | POST   | Faz login na API.            | Faz login na API.                  |
-| `/user`       | POST   | Cria um novo usuário.        | -                                   |
+| `/user`       | GET    | -                             | Retorna todos os usuários.         |
+| `/user`       | POST   | Cria um novo usuário.        | Cria um novo usuário.               |
+| `/booking`    | POST   | Registra uma reserva em um quarto. | Registra uma reserva em um quarto. |
 | `/city`       | GET    | Retorna todas as cidades.    | Retorna todas as cidades.          |
 | `/hotel`      | GET    | Retorna todos os hotéis.     | Retorna todos os hotéis.           |
-| `/room/{id}`  | GET    | Retorna informações de um quarto com o ID especificado. | - |
-| `/`           | GET    | Retorna uma mensagem de status "Online" da API. | Retorna uma mensagem de status "Online" da API. |
+| `/room/{id}`  | GET    | Retorna informações de um quarto com o ID especificado. | Retorna informações de um quarto com o ID especificado. |
+| `/room`       | POST   | -                             | Cria um novo quarto.               |
+| `/room/{id}`  | DELETE | -                             | Deleta um quarto pelo ID.          |
+| `/hotel`      | POST   | -                             | Cria um novo hotel.                |
+| `/city`       | POST   | -                             | Cria uma nova cidade.              |
+| `/city/{id}`  | PUT    | -                             | Edita uma cidade existente.        |
 | `/geo/status` | GET    | Retorna o status da API externa responsável pela geolocalização. | Retorna o status da API externa responsável pela geolocalização. |
 | `/geo/address`| GET    | Retorna hotéis ordenados por distância de um endereço. | Retorna hotéis ordenados por distância de um endereço. |
-| `/booking`    | POST   | Registra uma reserva em um quarto. | Registra uma reserva em um quarto. |
+
 
 ## Instalação e Uso
 
