@@ -16,5 +16,7 @@ public class Hotel
   public City? City { get; set; }
 
   public virtual List<Room>? Rooms { get; set; }
+
+  public string? Image { get; set; }
   
 }
